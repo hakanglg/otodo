@@ -1,5 +1,6 @@
-OTODO
-
+**OTODO**
+**-not yet completed. will be completed soon**
+**-coming soon to google play store**
 
 <img src="https://user-images.githubusercontent.com/58719777/152655232-3a988d9e-ffcb-40ca-a602-3960aadb9678.png" width="400"/>
 <img src="https://user-images.githubusercontent.com/58719777/152655234-775abe2f-f556-41ed-b57f-d5436d4e0a24.png" width="400"/>
