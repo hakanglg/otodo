@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 
 ThemeData lightTheme = ThemeData(
-    cursorColor: cursorLight,
     inputDecorationTheme: const InputDecorationTheme(
       hintStyle: TextStyle(color: Colors.white),
     ),
@@ -25,4 +24,5 @@ ThemeData lightTheme = ThemeData(
           color: containerLight,
           fontWeight: FontWeight.w600,
           decoration: TextDecoration.lineThrough),
-    ));
+    ),
+    textSelectionTheme: TextSelectionThemeData(cursorColor: cursorLight));

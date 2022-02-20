@@ -3,7 +3,7 @@ import 'package:get/state_manager.dart';
 import '../model/task.dart';
 
 class TaskController extends GetxController {
-  var _tasks = <Task>[].obs;
+  final _tasks = <Task>[].obs;
 
   int get getLenght => tasks.length;
 

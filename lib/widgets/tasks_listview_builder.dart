@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../core/constants/colors.dart';
 
 import '../controller/task_controller.dart';
 
@@ -26,7 +25,7 @@ class TasksListViewBuilder extends StatelessWidget {
             padding: EdgeInsets.only(
                 left: MediaQuery.of(context).size.height * 0.02),
             alignment: Alignment.centerLeft,
-            child: Icon(
+            child: const Icon(
               Icons.delete,
               color: Colors.white,
             )),
@@ -70,7 +69,7 @@ class TasksListViewBuilder extends StatelessWidget {
         print(taskController.tasks[index].isDone);
       },
       icon: taskController.tasks[index].isDone
-          ? Icon(
+          ? const Icon(
               Icons.check_circle,
               color: Colors.green,
             )

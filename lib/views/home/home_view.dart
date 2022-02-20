@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../controller/theme_controller.dart';
-import '../../core/theme/light_theme.dart';
-
-import '../../core/theme/dark_theme.dart';
-import '../../widgets/add_task_fab.dart';
-
-import '../../widgets/tasks_listview_builder.dart';
 import 'package:get/get.dart';
+
 import '../../controller/task_controller.dart';
+import '../../controller/theme_controller.dart';
+import '../../widgets/add_task_fab.dart';
+import '../../widgets/tasks_listview_builder.dart';
 
 // import 'package:thememode_selector/thememode_selector.dart';
 
@@ -36,7 +33,7 @@ class HomeView extends StatelessWidget {
         ),
         leading: IconButton(
           onPressed: () {
-            themeController..toggleDarkMode();
+            themeController.toggleDarkMode();
           },
           icon: themeController.isDarkMode
               ? Icon(

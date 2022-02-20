@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 
 import '../core/theme/dark_theme.dart';
 import '../core/theme/light_theme.dart';
