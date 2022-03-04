@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'core/translation/translation.dart';
 
 import 'core/theme/dark_theme.dart';
 import 'views/home/home_view.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  await GetStorage.init();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   final title = "OTODO";
@@ -24,3 +28,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+// GETX KALDIR PROVİDER EKLE
+// SSHARED PREF EKLE
