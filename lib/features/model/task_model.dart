@@ -10,7 +10,12 @@ class Task {
   factory Task.create({required String title}) {
     return Task(title: title, uuid: const Uuid().v1(), isDone: false);
   }
-//   void toggleCompleted() {
-//     isDone = !isDone;
-//   }
+
+  Task.fromMap(Map<String, dynamic> map)
+      : title = map["title"],
+        isDone = map["isDone"],
+        uuid = map["uuid"];
+
+  Map<String, dynamic> toMap() =>
+      {"title": title, "isDone": isDone, "uuid": uuid};
 }

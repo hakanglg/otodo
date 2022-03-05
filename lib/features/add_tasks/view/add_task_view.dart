@@ -21,11 +21,10 @@ class AddTaskView extends StatelessWidget with BaseState {
         cursorColor: context.appTheme.textSelectionTheme.cursorColor,
         style: context.textTheme.subtitle1,
         onSubmitted: (value) {
-
           var value = t1.text;
           var newTask = Task.create(title: value);
           Provider.of<Tasks>(context, listen: false).addTask(newTask);
-  
+
           context.pop();
         },
         controller: t1,
