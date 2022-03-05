@@ -63,10 +63,11 @@ class TasksListViewBuilder extends StatelessWidget {
   IconButton TaskToggleButton(int index, context) {
     return IconButton(
       onPressed: () {
-        taskController.tasks[index].isDone =
-            !taskController.tasks[index].isDone;
-        taskController.tasks.refresh();
-        print(taskController.tasks[index].isDone);
+      
+        // taskController.tasks[index].isDone =
+        //     !taskController.tasks[index].isDone;
+        // taskController.tasks.refresh();
+        // print(taskController.tasks[index].isDone);
       },
       icon: taskController.tasks[index].isDone
           ? const Icon(

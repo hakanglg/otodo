@@ -1,34 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'core/translation/translation.dart';
+import 'package:provider/provider.dart';
 
 import 'core/theme/dark_theme.dart';
-import 'views/home/home_view.dart';
+import 'features/model/tasks_model.dart';
+import 'features/tasks/view/tasks_view.dart';
 
-void main() async {
-  await GetStorage.init();
-  runApp(MyApp());
-}
+void main() => runApp(MultiProvider(providers: [
+      ChangeNotifierProvider(
+        create: (context) => Tasks(),
+      )
+    ], child: MyApp()));
 
 class MyApp extends StatelessWidget {
-  final title = "OTODO";
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: title,
-      home: HomeView(),
-      translations: Messages(),
-      locale: Get.deviceLocale,
-      fallbackLocale: const Locale('en_US', 'UK'),
-      initialRoute: "/",
-      getPages: [GetPage(name: "/", page: () => HomeView())],
+    return MaterialApp(
+      title: 'OTODO',
       theme: darkTheme,
+      home: TasksView(),
     );
   }
 }
-
-
-// GETX KALDIR PROVİDER EKLE
-// SSHARED PREF EKLE
