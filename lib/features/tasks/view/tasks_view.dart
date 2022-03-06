@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import '../../../core/base/base_state.dart';
 import '../../../widgets/fab/add_fab.dart';
 import '../../model/tasks_model.dart';
@@ -14,16 +15,21 @@ class TasksView extends StatefulWidget with BaseState {
 class _TasksViewState extends State<TasksView> with BaseState {
   _TasksStringValues values = _TasksStringValues();
   _TasksViewModel model = _TasksViewModel();
-  Tasks tasks = Tasks();
-
-
+  // Tasks tasks = Tasks();
 
   @override
   void initState() {
     super.initState();
 
-    tasks.getTasks;
+    // tasks.getTasks;
     // _getAllTaskFromDb();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    Hive.box("taskBox").close();
+    super.dispose();
   }
 
   @override
@@ -60,13 +66,14 @@ class _TasksViewState extends State<TasksView> with BaseState {
 
   ListView TasksListViewBuilder(Tasks tasks) {
     return ListView.builder(
-      itemCount: tasks.getLenght,
-      itemBuilder: (context, index) => ListTile(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        title: titleText(tasks, context, index),
-        trailing: trailingIconButton(tasks, index),
-      ),
-    );
+        itemCount: tasks.getLenght,
+        itemBuilder: (context, index) {
+          return ListTile(
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+            title: titleText(tasks, context, index),
+            trailing: trailingIconButton(tasks, index),
+          );
+        });
   }
 
   Text titleText(Tasks tasks, BuildContext context, int index) =>

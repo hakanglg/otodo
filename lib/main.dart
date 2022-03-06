@@ -8,10 +8,11 @@ import 'features/tasks/view/tasks_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await Tasks().createPrefObject();
+
   await Hive.initFlutter();
   Hive.registerAdapter(TaskAdapter());
-  await Hive.openBox("taskBox");
+  await Hive.openBox<Task>("taskBox");
+
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
       create: (context) => Tasks(),

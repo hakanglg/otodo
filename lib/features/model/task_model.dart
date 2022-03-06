@@ -24,4 +24,6 @@ class Task extends HiveObject {
 
   // Map<String, dynamic> toMap() =>
   //     {"title": title, "isDone": isDone, "uuid": uuid};
+
+  
 }

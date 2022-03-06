@@ -3,6 +3,8 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:otodo/features/model/task_model.dart';
 
+import '../../core/boxes/boxes.dart';
+
 class Tasks extends ChangeNotifier {
   List<Task> _tasks = [];
 
@@ -18,6 +20,8 @@ class Tasks extends ChangeNotifier {
   void addTask(Task task) {
     _tasks.add(task);
     // saveItemsToSharedPref(_tasks);
+    final box = Boxes.getTaskBox();
+    box.add(task);
     notifyListeners();
   }
 
