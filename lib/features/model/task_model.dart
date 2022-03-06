@@ -11,11 +11,11 @@ class Task {
     return Task(title: title, uuid: const Uuid().v1(), isDone: false);
   }
 
-  Task.fromMap(Map<String, dynamic> map)
-      : title = map["title"],
-        isDone = map["isDone"],
-        uuid = map["uuid"];
+  // Task.fromMap(Map<String, dynamic> map)
+  //     : title = map["title"],
+  //       isDone = map["isDone"],
+  //       uuid = map["uuid"];
 
-  Map<String, dynamic> toMap() =>
-      {"title": title, "isDone": isDone, "uuid": uuid};
+  // Map<String, dynamic> toMap() =>
+  //     {"title": title, "isDone": isDone, "uuid": uuid};
 }

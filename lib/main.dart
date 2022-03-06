@@ -5,8 +5,8 @@ import 'core/theme/dark_theme.dart';
 import 'features/model/tasks_model.dart';
 import 'features/tasks/view/tasks_view.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
   // await Tasks().createPrefObject();
 
   runApp(MultiProvider(providers: [
