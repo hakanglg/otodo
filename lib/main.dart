@@ -7,7 +7,7 @@ import 'features/tasks/view/tasks_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Tasks().createPrefObject();
+  // await Tasks().createPrefObject();
 
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
@@ -19,7 +19,7 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Provider.of<Tasks>(context).loadTaskFromSharedPref();
+    // Provider.of<Tasks>(context).loadTaskFromSharedPref();
     return MaterialApp(
       title: 'OTODO',
       theme: darkTheme,

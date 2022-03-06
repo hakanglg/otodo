@@ -1,9 +1,9 @@
 import 'package:uuid/uuid.dart';
 
 class Task {
-  String title;
+  final String title;
   bool isDone;
-  String uuid;
+  final String uuid;
 
   Task({required this.title, required this.isDone, required this.uuid});
 

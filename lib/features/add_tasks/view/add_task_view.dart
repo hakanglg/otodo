@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:otodo/core/base/base_state.dart';
+import '../../../core/base/base_state.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
 
