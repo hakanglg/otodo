@@ -6,10 +6,25 @@ import 'package:provider/provider.dart';
 part "tasks_string_values.dart";
 part "../view_model/tasks_view_model.dart";
 
-class TasksView extends StatelessWidget with BaseState {
+class TasksView extends StatefulWidget with BaseState {
+  @override
+  State<TasksView> createState() => _TasksViewState();
+}
+
+class _TasksViewState extends State<TasksView> with BaseState {
   _TasksStringValues values = _TasksStringValues();
   _TasksViewModel model = _TasksViewModel();
   Tasks tasks = Tasks();
+
+
+
+  @override
+  void initState() {
+    super.initState();
+
+    tasks.getTasks;
+    // _getAllTaskFromDb();
+  }
 
   @override
   Widget build(BuildContext context) {

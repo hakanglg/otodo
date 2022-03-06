@@ -11,6 +11,7 @@ class Tasks extends ChangeNotifier {
   // List<String> _tasksAsString = [];
 
   UnmodifiableListView<Task> get getTasks => UnmodifiableListView(_tasks);
+  // List<Task> get getTasks => _tasks;
 
   int get getLenght => _tasks.length;
 
