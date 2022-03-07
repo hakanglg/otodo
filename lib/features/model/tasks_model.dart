@@ -19,14 +19,19 @@ class Tasks extends ChangeNotifier {
   void addTask(Task task) {
     _tasks.add(task);
     // saveItemsToSharedPref(_tasks);
-    Hive.box<Task>("taskBox").put("Task", task);
+    var box = Hive.box<Task>("taskBox");
+    box.add(task);
     // box.add(task);
     notifyListeners();
   }
 
-  void removeTask(int index) {
+  removeTask(int index) async {
+    var box = Hive.box<Task>("taskBox");
+    await box.deleteAt(index);
+    // getTasks;
     _tasks.removeAt(index);
     // saveItemsToSharedPref(_tasks);
+
     notifyListeners();
   }
 
@@ -35,6 +40,13 @@ class Tasks extends ChangeNotifier {
 
     // saveItemsToSharedPref(_tasks);
     // Hive.box<Task>("taskBox").put("Task", task);
+    notifyListeners();
+  }
+
+  Future<void> getItem() async {
+    final box = await Hive.box<Task>("taskBox");
+
+    _tasks = box.values.toList();
     notifyListeners();
   }
 

@@ -16,7 +16,7 @@ class TasksView extends StatefulWidget with BaseState {
 class _TasksViewState extends State<TasksView> with BaseState {
   _TasksStringValues values = _TasksStringValues();
   _TasksViewModel model = _TasksViewModel();
-  // Tasks tasks = Tasks();
+  Tasks tasks = Tasks();
 
   late Box<Task> taskBox;
 
@@ -25,6 +25,7 @@ class _TasksViewState extends State<TasksView> with BaseState {
     super.initState();
 
     taskBox = Hive.box<Task>("taskBox");
+    tasks.getItem();
   }
 
   @override
@@ -50,6 +51,7 @@ class _TasksViewState extends State<TasksView> with BaseState {
                   final value = task.get(key);
 
                   return ListTile(
+                    onTap: tasks.removeTask(index),
                     title: Text(value!.title.toString()),
                     trailing: IconButton(
                       onPressed: () {
