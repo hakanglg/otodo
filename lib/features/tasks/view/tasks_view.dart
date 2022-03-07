@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../../../core/base/base_state.dart';
 import '../../../widgets/fab/add_fab.dart';
+import '../../model/task_model.dart';
 import '../../model/tasks_model.dart';
 import 'package:provider/provider.dart';
 part "tasks_string_values.dart";
@@ -17,12 +18,13 @@ class _TasksViewState extends State<TasksView> with BaseState {
   _TasksViewModel model = _TasksViewModel();
   // Tasks tasks = Tasks();
 
+  late Box<Task> taskBox;
+
   @override
   void initState() {
     super.initState();
 
-    // tasks.getTasks;
-    // _getAllTaskFromDb();
+    taskBox = Hive.box<Task>("taskBox");
   }
 
   @override
@@ -38,11 +40,42 @@ class _TasksViewState extends State<TasksView> with BaseState {
       floatingActionButton: AddTaskFABButton(),
       appBar: customAppBar(context),
       body: Consumer<Tasks>(
-        builder: (context, tasks, child) => TasksListViewBuilder(tasks),
+        builder: (context, tasks, child) => ValueListenableBuilder(
+            valueListenable: taskBox.listenable(),
+            builder: (context, Box<Task> task, _) {
+              return ListView.builder(
+                itemCount: task.keys.length,
+                itemBuilder: (context, index) {
+                  final key = task.keys.toList()[index];
+                  final value = task.get(key);
+
+                  return ListTile(
+                    title: Text(value!.title.toString()),
+                    trailing: IconButton(
+                      onPressed: () {
+                        tasks.toggleStatus(index);
+                        print(value.isDone);
+                      },
+                      icon: value.isDone
+                          ? Icon(
+                              Icons.check_circle,
+                              color: colorConstants.spotifyGreen,
+                            )
+                          : Icon(
+                              Icons.circle_outlined,
+                              color: colorConstants.white,
+                            ),
+                      // color: Colors.white,
+                    ),
+                  );
+                },
+              );
+            }),
       ),
     );
   }
 
+// TasksListViewBuilder(tasks)
   AppBar customAppBar(BuildContext context) {
     return AppBar(
         title: appBarTitleText(context), leading: appBarIconButton(context));
