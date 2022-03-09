@@ -7,48 +7,51 @@ import 'package:otodo/features/model/task_model.dart';
 class Tasks extends ChangeNotifier {
   List<Task> _tasks = [];
 
-  // static SharedPreferences? _sharedPref;
+  final String taskBoxName = "taskBox";
+
+  late Future<Box<Task>> box = Hive.openBox<Task>(taskBoxName);
 
   // List<String> _tasksAsString = [];
 
   UnmodifiableListView<Task> get getTasks => UnmodifiableListView(_tasks);
   // List<Task> get getTasks => _tasks;
 
+  // add list in box
+
+  Future<void> addBoxList() async {
+    final box = await Hive.openBox<Task>(taskBoxName);
+    await box.clear();
+    await box.addAll(_tasks);
+    notifyListeners();
+  }
+
   int get getLenght => _tasks.length;
 
   void addTask(Task task) {
     _tasks.add(task);
-    // saveItemsToSharedPref(_tasks);
-    var box = Hive.box<Task>("taskBox");
-    box.add(task);
-    // box.add(task);
     notifyListeners();
   }
 
-  removeTask(int index) async {
-    var box = Hive.box<Task>("taskBox");
-    await box.deleteAt(index);
-    // getTasks;
-    _tasks.removeAt(index);
+  Future<void> removeTask(int index) async {
+    await _tasks.removeAt(index);
+    addBoxList();
     // saveItemsToSharedPref(_tasks);
 
     notifyListeners();
   }
 
-  void toggleStatus(int index) {
-    _tasks[index].isDone = !_tasks[index].isDone;
-
-    // saveItemsToSharedPref(_tasks);
-    // Hive.box<Task>("taskBox").put("Task", task);
+  Future<void> toggleStatus(int index) async {
+    _tasks[index].isDone = await !_tasks[index].isDone;
+    addBoxList();
     notifyListeners();
   }
 
-  Future<void> getItem() async {
-    final box = await Hive.box<Task>("taskBox");
+  // Future<List<Task>> getItem() async {
+  //   final box = await Hive.box<Task>("taskBox");
 
-    _tasks = box.values.toList();
-    notifyListeners();
-  }
+  //   return box.values.toList();
+  //   notifyListeners();
+  // }
 
   // Shared Pref Methods
 

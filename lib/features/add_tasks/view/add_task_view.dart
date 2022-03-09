@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 import '../../../core/base/base_state.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +23,7 @@ class AddTaskView extends StatelessWidget with BaseState {
         style: context.textTheme.subtitle1,
         onSubmitted: (value) {
           var value = t1.text;
-          var newTask = Task.create(title: value);
+          var newTask = Task(title: value, isDone: false, uuid: Uuid().v1());
           Provider.of<Tasks>(context, listen: false).addTask(newTask);
 
           context.pop();
