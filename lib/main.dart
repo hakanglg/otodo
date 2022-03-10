@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'core/theme/dark_theme.dart';
 import 'features/model/tasks_model.dart';
 import 'features/tasks/view/tasks_view.dart';
-
+// mobx ekle
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
