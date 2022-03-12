@@ -5,19 +5,16 @@ import 'package:provider/provider.dart';
 import 'core/theme/dark_theme.dart';
 import 'features/model/tasks_model.dart';
 import 'features/tasks/view/tasks_view.dart';
+
 // mobx ekle
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Hive.initFlutter();
-  Hive.registerAdapter(TaskAdapter());
-  await Hive.openBox<Task>("taskBox");
+  // await Hive.initFlutter();
+  // Hive.registerAdapter(TaskAdapter());
+  // await Hive.openBox<Task>("taskBox");
 
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(
-      create: (context) => Tasks(),
-    )
-  ], child: MyApp()));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

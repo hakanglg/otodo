@@ -1,51 +1,61 @@
-import 'dart:collection';
+// import 'dart:collection';
 
-import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:otodo/features/model/task_model.dart';
+// import 'package:flutter/material.dart';
+// import 'package:hive_flutter/hive_flutter.dart';
+// import 'package:otodo/features/model/task_model.dart';
 
-class Tasks extends ChangeNotifier {
-  List<Task> _tasks = [];
 
-  final String taskBoxName = "taskBox";
+// import 'package:mobx/mobx.dart';
+// part 'tasks_model.g.dart';
 
-  late Future<Box<Task>> box = Hive.openBox<Task>(taskBoxName);
+// class TasksViewModel = _TasksViewModelBase with _$TasksViewModel;
 
-  // List<String> _tasksAsString = [];
+// abstract class _TasksViewModelBase with Store {
+  
+// }
 
-  UnmodifiableListView<Task> get getTasks => UnmodifiableListView(_tasks);
-  // List<Task> get getTasks => _tasks;
+// class Tasks extends ChangeNotifier {
+//   List<Task> _tasks = [];
 
-  // add list in box
+//   final String taskBoxName = "taskBox";
 
-  Future<void> addBoxList() async {
-    final box = await Hive.openBox<Task>(taskBoxName);
-    await box.clear();
-    await box.addAll(_tasks);
-    notifyListeners();
-  }
+//   late Future<Box<Task>> box = Hive.openBox<Task>(taskBoxName);
 
-  int get getLenght => _tasks.length;
+//   // List<String> _tasksAsString = [];
 
-  void addTask(Task task) {
-    _tasks.add(task);
-    notifyListeners();
-  }
+//   UnmodifiableListView<Task> get getTasks => UnmodifiableListView(_tasks);
+//   // List<Task> get getTasks => _tasks;
 
-  Future<void> removeTask(int index) async {
-    await _tasks.removeAt(index);
-    addBoxList();
-    // saveItemsToSharedPref(_tasks);
+//   // add list in box
 
-    notifyListeners();
-  }
+//   Future<void> addBoxList() async {
+//     final box = await Hive.openBox<Task>(taskBoxName);
+//     await box.clear();
+//     await box.addAll(_tasks);
+//     notifyListeners();
+//   }
 
-  Future<void> toggleStatus(int index) async {
-    _tasks[index].isDone = await !_tasks[index].isDone;
-    addBoxList();
-    notifyListeners();
-  }
+//   int get getLenght => _tasks.length;
 
+//   void addTask(Task task) {
+//     _tasks.add(task);
+//     notifyListeners();
+//   }
+
+//   Future<void> removeTask(int index) async {
+//     await _tasks.removeAt(index);
+//     addBoxList();
+//     // saveItemsToSharedPref(_tasks);
+
+//     notifyListeners();
+//   }
+
+//   Future<void> toggleStatus(int index) async {
+//     _tasks[index].isDone = await !_tasks[index].isDone;
+//     addBoxList();
+//     notifyListeners();
+//   }
+// ----
   // Future<List<Task>> getItem() async {
   //   final box = await Hive.box<Task>("taskBox");
 
@@ -77,4 +87,4 @@ class Tasks extends ChangeNotifier {
   //     _tasks.add(Task.fromMap(jsonDecode(task)));
   //   }
   // }
-}
+// }

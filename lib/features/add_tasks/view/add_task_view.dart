@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:otodo/features/tasks/view_model/tasks_view_model.dart';
 import 'package:uuid/uuid.dart';
 import '../../../core/base/base_state.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
-
+import 'package:mobx/mobx.dart';
 import '../../model/task_model.dart';
 import '../../model/tasks_model.dart';
 part "add_task_string_values.dart";
 
 class AddTaskView extends StatelessWidget with BaseState {
-  Tasks tasks = Tasks();
+  final TasksViewModel _model = TasksViewModel();
+
   _AddTaskViewStringValues values = _AddTaskViewStringValues();
   TextEditingController t1 = TextEditingController();
   @override
@@ -24,7 +26,7 @@ class AddTaskView extends StatelessWidget with BaseState {
         onSubmitted: (value) {
           var value = t1.text;
           var newTask = Task(title: value, isDone: false, uuid: Uuid().v1());
-          Provider.of<Tasks>(context, listen: false).addTask(newTask);
+          _model.addTask(newTask);
 
           context.pop();
         },

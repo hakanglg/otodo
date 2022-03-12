@@ -33,6 +33,9 @@ dependencies:
   build_runner: ^2.1.7
   provider: ^6.0.2
   get_it: ^7.2.0
+  mobx: ^2.0.6+1
+  mobx_codegen: ^2.0.5+2
+  flutter_mobx: ^2.0.4
  
 
 
