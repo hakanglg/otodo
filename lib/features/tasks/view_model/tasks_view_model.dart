@@ -10,6 +10,10 @@ abstract class _TasksViewModelBase with Store {
   @observable
   ObservableList<Task> _tasks = ObservableList<Task>();
 
+  @observable
+  @observable
+  bool loading = false;
+
   @computed
   ObservableList<Task> get taskList => _tasks;
 
@@ -19,7 +23,7 @@ abstract class _TasksViewModelBase with Store {
   @action
   void addTask(Task task) {
     _tasks.add(task);
-    print("task");
+    print(task.title);
   }
 
   @action

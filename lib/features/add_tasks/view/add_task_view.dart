@@ -3,10 +3,7 @@ import 'package:otodo/features/tasks/view_model/tasks_view_model.dart';
 import 'package:uuid/uuid.dart';
 import '../../../core/base/base_state.dart';
 import 'package:kartal/kartal.dart';
-import 'package:provider/provider.dart';
-import 'package:mobx/mobx.dart';
 import '../../model/task_model.dart';
-import '../../model/tasks_model.dart';
 part "add_task_string_values.dart";
 
 class AddTaskView extends StatelessWidget with BaseState {
