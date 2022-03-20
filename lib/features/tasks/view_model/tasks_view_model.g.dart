@@ -39,6 +39,21 @@ mixin _$TasksViewModel on _TasksViewModelBase, Store {
     });
   }
 
+  final _$loadingAtom = Atom(name: '_TasksViewModelBase.loading');
+
+  @override
+  bool get loading {
+    _$loadingAtom.reportRead();
+    return super.loading;
+  }
+
+  @override
+  set loading(bool value) {
+    _$loadingAtom.reportWrite(value, super.loading, () {
+      super.loading = value;
+    });
+  }
+
   final _$_TasksViewModelBaseActionController =
       ActionController(name: '_TasksViewModelBase');
 
@@ -65,8 +80,20 @@ mixin _$TasksViewModel on _TasksViewModelBase, Store {
   }
 
   @override
+  void changeStatus(int index) {
+    final _$actionInfo = _$_TasksViewModelBaseActionController.startAction(
+        name: '_TasksViewModelBase.changeStatus');
+    try {
+      return super.changeStatus(index);
+    } finally {
+      _$_TasksViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
+loading: ${loading},
 taskList: ${taskList},
 getLenght: ${getLenght}
     ''';

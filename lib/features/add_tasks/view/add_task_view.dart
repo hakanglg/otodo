@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:otodo/features/tasks/view_model/tasks_view_model.dart';
+import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 import '../../../core/base/base_state.dart';
 import 'package:kartal/kartal.dart';
@@ -11,8 +13,11 @@ class AddTaskView extends StatelessWidget with BaseState {
 
   _AddTaskViewStringValues values = _AddTaskViewStringValues();
   TextEditingController t1 = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final tasks = Provider.of<TasksViewModel>(context);
+
     return Container(
       padding:
           EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
@@ -23,7 +28,10 @@ class AddTaskView extends StatelessWidget with BaseState {
         onSubmitted: (value) {
           var value = t1.text;
           var newTask = Task(title: value, isDone: false, uuid: Uuid().v1());
-          _model.addTask(newTask);
+          var box = Hive.box<Task>("taskBox");
+          box.add(newTask);
+
+          tasks.addTask(newTask);
 
           context.pop();
         },

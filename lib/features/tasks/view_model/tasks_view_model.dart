@@ -11,7 +11,6 @@ abstract class _TasksViewModelBase with Store {
   ObservableList<Task> _tasks = ObservableList<Task>();
 
   @observable
-  @observable
   bool loading = false;
 
   @computed
@@ -29,5 +28,15 @@ abstract class _TasksViewModelBase with Store {
   @action
   void removeTask(int index) {
     _tasks.removeAt(index);
+  }
+
+  @action
+  void changeStatus(int index) {
+    // _tasks[index].toggleStatus();
+    _tasks[index].isDone = !_tasks[index].isDone;
+    // var box = Hive.box<Task>("taskBox");
+    //       box.add(newTask);
+    // taskList[index].isDone = !taskList[index].isDone;
+    // print(_tasks[index].isDone);
   }
 }
