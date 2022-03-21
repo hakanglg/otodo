@@ -27,11 +27,11 @@ class AddTaskView extends StatelessWidget with BaseState {
         style: context.textTheme.subtitle1,
         onSubmitted: (value) {
           var value = t1.text;
-          var newTask = Task(title: value, isDone: false, uuid: Uuid().v1());
-          var box = Hive.box<Task>("taskBox");
-          box.add(newTask);
-
+          var newTask = Task(title: value, uuid: Uuid().v1());
+          // var box = Hive.box<Task>("taskBox");
+          // box.add(newTask);
           tasks.addTask(newTask);
+          // tasks.addTask(newTask);
 
           context.pop();
         },

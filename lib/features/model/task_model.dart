@@ -11,14 +11,10 @@ class Task extends HiveObject {
   @HiveField(2)
   final String uuid;
 
-  Task({required this.title, required this.isDone, required this.uuid});
+  Task({required this.title, this.isDone = false, required this.uuid});
 
   factory Task.create({required String title}) {
     return Task(title: title, uuid: const Uuid().v1(), isDone: false);
-  }
-
-  void toggleStatus() {
-    isDone = !isDone;
   }
 
   // Task.fromMap(Map<String, dynamic> map)
