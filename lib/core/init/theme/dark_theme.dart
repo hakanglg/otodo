@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../constants/color_constants.dart';
+
+import '../../constants/color_constants.dart';
+
 
 ThemeData darkTheme = ThemeData(
     inputDecorationTheme: InputDecorationTheme(
