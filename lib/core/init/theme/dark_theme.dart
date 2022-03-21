@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../constants/color_constants.dart';
-
 
 ThemeData darkTheme = ThemeData(
     inputDecorationTheme: InputDecorationTheme(
@@ -24,10 +24,12 @@ ThemeData darkTheme = ThemeData(
     textTheme: TextTheme(
       headline5: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
       subtitle1: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
-      bodyText1: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
       bodyText2: TextStyle(
+          color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16.sp),
+      bodyText1: TextStyle(
           color: ColorConstants.instance.spotifyGreen,
           fontWeight: FontWeight.w500,
+          fontSize: 16.sp,
           decoration: TextDecoration.lineThrough),
     ),
     textSelectionTheme:

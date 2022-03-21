@@ -16,13 +16,6 @@ class Task extends HiveObject {
   factory Task.create({required String title}) {
     return Task(title: title, uuid: const Uuid().v1(), isDone: false);
   }
-
-  // Task.fromMap(Map<String, dynamic> map)
-  //     : title = map["title"],
-  //       isDone = map["isDone"],
-  //       uuid = map["uuid"];
-
-  // Map<String, dynamic> toMap() =>
-  //     {"title": title, "isDone": isDone, "uuid": uuid};
-
 }
+
+// modeli tasks içine taşı

@@ -5,7 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 import '../../../core/base/base_state.dart';
 import 'package:kartal/kartal.dart';
-import '../../model/task_model.dart';
+
+import '../../tasks/model/task_model.dart';
 part "add_task_string_values.dart";
 
 class AddTaskView extends StatelessWidget with BaseState {
@@ -16,7 +17,7 @@ class AddTaskView extends StatelessWidget with BaseState {
 
   @override
   Widget build(BuildContext context) {
-    final tasks = Provider.of<TasksViewModel>(context);
+    // final tasks = Provider.of<TasksViewModel>(context);
 
     return Container(
       padding:
@@ -28,12 +29,7 @@ class AddTaskView extends StatelessWidget with BaseState {
         onSubmitted: (value) {
           var value = t1.text;
           var newTask = Task(title: value, uuid: Uuid().v1());
-          // var box = Hive.box<Task>("taskBox");
-          // box.add(newTask);
-          tasks.addTask(newTask);
-          // tasks.addTask(newTask);
-
-          context.pop();
+          _model.addTask(context, newTask);
         },
         controller: t1,
         autofocus: true,

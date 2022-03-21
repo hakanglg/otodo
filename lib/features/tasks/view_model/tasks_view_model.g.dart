@@ -27,8 +27,8 @@ mixin _$TasksViewModel on _TasksViewModelBase, Store {
   final _$addTaskAsyncAction = AsyncAction('_TasksViewModelBase.addTask');
 
   @override
-  Future<void> addTask(Task task) {
-    return _$addTaskAsyncAction.run(() => super.addTask(task));
+  Future<void> addTask(BuildContext context, Task task) {
+    return _$addTaskAsyncAction.run(() => super.addTask(context, task));
   }
 
   final _$removeTaskAsyncAction = AsyncAction('_TasksViewModelBase.removeTask');

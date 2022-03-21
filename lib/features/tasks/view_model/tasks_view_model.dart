@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:kartal/kartal.dart';
 import 'package:mobx/mobx.dart';
-
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import '../../../main.dart';
-import '../../model/task_model.dart';
-
+import '../model/task_model.dart';
 part 'tasks_view_model.g.dart';
 
 class TasksViewModel = _TasksViewModelBase with _$TasksViewModel;
@@ -12,25 +14,19 @@ abstract class _TasksViewModelBase with Store {
   @observable
   Box<Task> taskBox = Hive.box(taskBoxString);
 
-  // @observable
-  // ObservableList<Task> _tasks = ObservableList<Task>();
-
-  // @observable
-  // bool loading = false;
-
-  // @computed
-  // ObservableList<Task> get taskList => _tasks;
-
-  // @computed
-  // int get getLenght => _tasks.length;
-
   @action
-  Future<void> addTask(Task task) async {
-    // _tasks.add(task);
-    // print(task.title);
-    if (task.title.length > 0) {
+  Future<void> addTask(BuildContext context, Task task) async {
+    if (task.title.isNotEmpty) {
       await taskBox.add(task);
-    } else {}
+      context.pop();
+    } else {
+      showTopSnackBar(
+        context,
+        CustomSnackBar.error(
+          message: "Something went wrong. Please enter a value and try again",
+        ),
+      );
+    }
   }
 
   @action
@@ -46,7 +42,6 @@ abstract class _TasksViewModelBase with Store {
     i.save();
   }
 
-  
   @action
   changeTask(int index, String value) {
     var i = taskBox.getAt(index);
