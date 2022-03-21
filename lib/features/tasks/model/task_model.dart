@@ -12,10 +12,4 @@ class Task extends HiveObject {
   final String uuid;
 
   Task({required this.title, this.isDone = false, required this.uuid});
-
-  factory Task.create({required String title}) {
-    return Task(title: title, uuid: const Uuid().v1(), isDone: false);
-  }
 }
-
-// modeli tasks içine taşı

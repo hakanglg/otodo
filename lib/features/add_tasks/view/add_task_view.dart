@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:otodo/features/tasks/view_model/tasks_view_model.dart';
-import 'package:provider/provider.dart';
+import '../../tasks/view_model/tasks_view_model.dart';
 import 'package:uuid/uuid.dart';
 import '../../../core/base/base_state.dart';
 import 'package:kartal/kartal.dart';
-
 import '../../tasks/model/task_model.dart';
 part "add_task_string_values.dart";
 
@@ -17,8 +14,6 @@ class AddTaskView extends StatelessWidget with BaseState {
 
   @override
   Widget build(BuildContext context) {
-    // final tasks = Provider.of<TasksViewModel>(context);
-
     return Container(
       padding:
           EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),

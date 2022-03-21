@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:kartal/kartal.dart';
-import 'package:otodo/core/base/base_state.dart';
-import 'package:otodo/features/tasks/view_model/tasks_view_model.dart';
+import '../../../core/base/base_state.dart';
+import '../view_model/tasks_view_model.dart';
+import '../../../main.dart';
 import '../../../widgets/fab/add_fab.dart';
 import '../model/task_model.dart';
 
@@ -13,13 +14,18 @@ class TasksView extends StatelessWidget with BaseState {
 
   _TasksStringValues values = _TasksStringValues();
 
-  // Box<Task> taskBox = Hive.box(taskBoxString);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: AddTaskFABButton(),
         appBar: AppBar(
+          // leading: ValueListenableBuilder(
+          //   valueListenable: Hive.box(themeBoxString).listenable(),
+          //   builder: (context, box, _) {
+          //   var  darkMode = box.get("darkMode", defaultValue: false);
+          //     return
+          //   },
+          // ),
           title: Text(values.title),
         ),
         body: ValueListenableBuilder(
