@@ -5,7 +5,7 @@ part "task_model.g.dart";
 @HiveType(typeId: 1)
 class Task extends HiveObject {
   @HiveField(0)
-  final String title;
+  String title;
   @HiveField(1)
   bool isDone;
   @HiveField(2)

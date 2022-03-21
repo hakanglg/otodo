@@ -53,6 +53,17 @@ mixin _$TasksViewModel on _TasksViewModelBase, Store {
   }
 
   @override
+  dynamic changeTask(int index, String value) {
+    final _$actionInfo = _$_TasksViewModelBaseActionController.startAction(
+        name: '_TasksViewModelBase.changeTask');
+    try {
+      return super.changeTask(index, value);
+    } finally {
+      _$_TasksViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 taskBox: ${taskBox}

@@ -45,4 +45,12 @@ abstract class _TasksViewModelBase with Store {
     i!.isDone = !i.isDone;
     i.save();
   }
+
+  
+  @action
+  changeTask(int index, String value) {
+    var i = taskBox.getAt(index);
+    i!.title = value;
+    i.save();
+  }
 }

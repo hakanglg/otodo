@@ -43,26 +43,8 @@ class TasksView extends StatelessWidget with BaseState {
                           //     style: _tasks.taskList[index].isDone
                           //         ? context.textTheme.bodyText2
                           //         : context.textTheme.bodyText1),
-                          title: Text(box.getAt(index)!.title),
-                          trailing: IconButton(
-                              onPressed: () => _model.changeStatus(index),
-                              icon: box.getAt(index)!.isDone
-                                  ? Container(
-                                      decoration: ShapeDecoration(
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(50)),
-                                        color: Colors.white,
-                                      ),
-                                      child: Icon(
-                                        Icons.check_circle,
-                                        color: Colors.green,
-                                      ),
-                                    )
-                                  : Icon(
-                                      Icons.circle_outlined,
-                                      color: Colors.white,
-                                    ))
+                          title: titleText(box, index, context),
+                          trailing: trailingIconButton(index, box)
 
                           // trailing: IconButton(
                           //   onPressed: () {
@@ -84,6 +66,35 @@ class TasksView extends StatelessWidget with BaseState {
             }
           },
         ));
+  }
+
+  Text titleText(Box<Task> box, int index, BuildContext context) {
+    return Text(
+                          box.getAt(index)!.title,
+                          style: box.getAt(index)!.isDone
+                              ? context.textTheme.bodyText2
+                              : context.textTheme.bodyText1,
+                        );
+  }
+
+  IconButton trailingIconButton(int index, Box<Task> box) {
+    return IconButton(
+        onPressed: () => _model.changeStatus(index),
+        icon: box.getAt(index)!.isDone ? completedIcon() : notCompletedIcon());
+  }
+
+  Icon notCompletedIcon() {
+    return const Icon(
+      Icons.circle_outlined,
+      color: Colors.white,
+    );
+  }
+
+  Icon completedIcon() {
+    return const Icon(
+      Icons.check_circle,
+      color: Colors.green,
+    );
   }
   // myButton(index, box),
 
