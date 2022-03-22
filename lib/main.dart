@@ -9,8 +9,6 @@ import 'core/init/theme/dark_theme.dart';
 import 'features/tasks/model/task_model.dart';
 import 'features/tasks/view/tasks_view.dart';
 
-// mobx ekle
-
 const String taskBoxString = "taskBox";
 const String themeBoxString = "darkModeBox";
 Future<void> main() async {
