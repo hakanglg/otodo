@@ -13,7 +13,7 @@ const String taskBoxString = "taskBox";
 const String themeBoxString = "darkModeBox";
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await EasyLocalization.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(TaskAdapter());
   await Hive.openBox<Task>(taskBoxString);
@@ -26,7 +26,8 @@ Future<void> main() async {
     child: EasyLocalization(
         path: ApplicationConstants.LANG_ASSET_PATH,
         supportedLocales: ApplicationConstants.SUPPORTEDLOCALS,
-        startLocale: ApplicationConstants.DE_LOCALE,
+        fallbackLocale: ApplicationConstants.EN_LOCALE,
+        saveLocale: true,
         child: MyApp()),
   ));
 }
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         builder: () => MaterialApp(
               localizationsDelegates: context.localizationDelegates,
               debugShowCheckedModeBanner: false,
+              locale: context.deviceLocale,
               title: 'OTODO',
               theme: darkTheme,
               home: TasksView(),

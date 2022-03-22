@@ -2,14 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:kartal/kartal.dart';
-import 'package:otodo/core/extension/string_extension.dart';
+import 'package:otodo/core/constants/app/app_constants.dart';
 import 'package:otodo/core/init/lang/locale_keys.g.dart';
-
 import '../../../core/base/base_state.dart';
-
 import '../../../core/components/text/locale_text.dart';
 import '../view_model/tasks_view_model.dart';
-import '../../../main.dart';
 import '../../../widgets/fab/add_fab.dart';
 import '../model/task_model.dart';
 
@@ -26,15 +23,10 @@ class TasksView extends StatelessWidget with BaseState {
     return Scaffold(
         floatingActionButton: AddTaskFABButton(),
         appBar: AppBar(
-          // leading: ValueListenableBuilder(
-          //   valueListenable: Hive.box(themeBoxString).listenable(),
-          //   builder: (context, box, _) {
-          //   var  darkMode = box.get("darkMode", defaultValue: false);
-          //     return
-          //   },
-          // ),
-          leading: changeTheme(context),
           title: Text(values.title),
+          actions: [
+            changeTheme(context),
+          ],
         ),
         body: ValueListenableBuilder(
           valueListenable: _model.taskBox.listenable(),
@@ -53,7 +45,11 @@ class TasksView extends StatelessWidget with BaseState {
   }
 
   IconButton changeTheme(BuildContext context) {
-    return IconButton(onPressed: () {}, icon: Icon(Icons.change_circle));
+    return IconButton(
+        onPressed: () {
+          context.locale = ApplicationConstants.EN_LOCALE;
+        },
+        icon: Icon(Icons.change_circle));
   }
 
   Center emptyText() {
