@@ -1,0 +1,5 @@
+{
+    "emptyTodo" : "¡Tu Otodo está vacío!",
+    "hintText" : "Añadir nueva tarea",
+    "errorMsg" : "Algo salió mal.Por favor ingrese un valor y vuelve a intentarlo" 
+}

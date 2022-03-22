@@ -1,0 +1,6 @@
+{
+    "emptyTodo" : "Your OTODO is empty!",
+    "hintText" : "Add new task",
+    "errorMsg" : "Something went wrong. Please enter a value and try again" 
+}
+

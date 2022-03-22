@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:otodo/core/components/text/locale_text.dart';
+import 'package:otodo/core/extension/string_extension.dart';
+import 'package:otodo/core/init/lang/locale_keys.g.dart';
 import '../../tasks/view_model/tasks_view_model.dart';
 import 'package:uuid/uuid.dart';
 import '../../../core/base/base_state.dart';
@@ -32,7 +35,7 @@ class AddTaskView extends StatelessWidget with BaseState {
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: values.hintText,
+            hintText: LocaleKeys.hintText.locale,
             hintStyle: context.appTheme.inputDecorationTheme.hintStyle,
             contentPadding:
                 EdgeInsets.symmetric(horizontal: context.dynamicHeight(0.03))),

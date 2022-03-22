@@ -1,0 +1,5 @@
+{
+    "emptyTodo" : "Yapılacaklar Listeniz Boş!",
+    "hintText" : "Yeni bir görev gir",
+    "errorMsg" : "Bir şeyler yanlış gitti.Lütfen bir değer girin ve tekrar deneyin" 
+}

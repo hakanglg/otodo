@@ -1,0 +1,5 @@
+{
+    "emptyTodo" : "Votre otodo est vide!",
+    "hintText" : "Ajouter une nouvelle tâche",
+    "errorMsg" : "Quelque chose s'est mal passé.S'il vous plaît entrer une valeur et réessayer" 
+}

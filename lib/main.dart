@@ -23,7 +23,11 @@ Future<void> main() async {
     providers: [
       Provider<TasksViewModel>(create: (_) => TasksViewModel()),
     ],
-    child: MyApp(),
+    child: EasyLocalization(
+        path: ApplicationConstants.LANG_ASSET_PATH,
+        supportedLocales: ApplicationConstants.SUPPORTEDLOCALS,
+        startLocale: ApplicationConstants.DE_LOCALE,
+        child: MyApp()),
   ));
 }
 
@@ -36,11 +40,9 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: () => MaterialApp(
+              localizationsDelegates: context.localizationDelegates,
               debugShowCheckedModeBanner: false,
               title: 'OTODO',
-              // supportedLocales: context.supportedLocales,
-              // localizationsDelegates: context.localizationDelegates,
-              // locale: context.deviceLocale,
               theme: darkTheme,
               home: TasksView(),
             ));
