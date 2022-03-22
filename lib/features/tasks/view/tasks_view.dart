@@ -24,12 +24,10 @@ class TasksView extends StatelessWidget with BaseState {
         floatingActionButton: AddTaskFABButton(),
         appBar: AppBar(
           title: Image.asset(
-            ApplicationConstants.LOGO_DARK_PATH,
+            ApplicationConstants.LOGO_LIGHT_PATH,
             fit: BoxFit.fitWidth,
           ),
-          actions: [
-            changeTheme(context),
-          ],
+          leading: changeTheme(context),
         ),
         body: ValueListenableBuilder(
           valueListenable: _model.taskBox.listenable(),
@@ -52,7 +50,10 @@ class TasksView extends StatelessWidget with BaseState {
         onPressed: () {
           context.locale = ApplicationConstants.EN_LOCALE;
         },
-        icon: Icon(Icons.change_circle));
+        icon: Icon(
+          Icons.brightness_medium_outlined,
+          color: context.appTheme.iconTheme.color,
+        ));
   }
 
   Center emptyText() {
@@ -63,11 +64,14 @@ class TasksView extends StatelessWidget with BaseState {
       BuildContext context, int index, Box<Task> box) {
     return Dismissible(
       background: Container(
-          alignment: Alignment.centerLeft,
+          alignment: Alignment.centerRight,
           color: Colors.red,
           child: Padding(
             padding: context.horizontalPaddingNormal,
-            child: Icon(Icons.delete),
+            child: Icon(
+              Icons.delete,
+              color: colorConstants.white,
+            ),
           )),
       onDismissed: (direction) => _model.removeTask(index),
       key: UniqueKey(),
@@ -78,7 +82,7 @@ class TasksView extends StatelessWidget with BaseState {
   ListTile taskListTileSection(Box<Task> box, int index, BuildContext context) {
     return ListTile(
         title: titleText(box, index, context),
-        trailing: trailingIconButton(index, box));
+        trailing: trailingIconButton(index, box, context));
   }
 
   Text titleText(Box<Task> box, int index, BuildContext context) {
@@ -90,16 +94,19 @@ class TasksView extends StatelessWidget with BaseState {
     );
   }
 
-  IconButton trailingIconButton(int index, Box<Task> box) {
+  IconButton trailingIconButton(
+      int index, Box<Task> box, BuildContext context) {
     return IconButton(
         onPressed: () => _model.changeStatus(index),
-        icon: box.getAt(index)!.isDone ? completedIcon() : notCompletedIcon());
+        icon: box.getAt(index)!.isDone
+            ? completedIcon()
+            : notCompletedIcon(context));
   }
 
-  Icon notCompletedIcon() {
-    return const Icon(
+  Icon notCompletedIcon(BuildContext context) {
+    return Icon(
       Icons.circle_outlined,
-      color: Colors.white,
+      color: context.appTheme.iconTheme.color,
     );
   }
 

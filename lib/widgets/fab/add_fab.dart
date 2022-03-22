@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:otodo/core/constants/color_constants.dart';
 
 import '../../features/add_tasks/view/add_task_view.dart';
 
@@ -13,7 +14,7 @@ class AddTaskFABButton extends StatelessWidget {
       onPressed: () => _showAddTaskModelBottomSheet(context),
       child: Icon(
         Icons.add,
-        color: Theme.of(context).iconTheme.color,
+        color: ColorConstants.instance.white,
       ),
     );
   }

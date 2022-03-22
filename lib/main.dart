@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:otodo/core/constants/app/app_constants.dart';
+import 'core/init/theme/light_theme.dart';
 import 'features/tasks/view_model/tasks_view_model.dart';
 import 'package:provider/provider.dart';
 import 'core/init/theme/dark_theme.dart';
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               locale: context.deviceLocale,
               title: 'OTODO',
-              theme: darkTheme,
+              theme: lightTheme,
               home: TasksView(),
             ));
   }

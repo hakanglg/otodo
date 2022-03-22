@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
 import 'package:otodo/core/extension/string_extension.dart';
 
 class LocaleText extends StatelessWidget {
@@ -9,6 +10,9 @@ class LocaleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AutoSizeText(text.locale);
+    return AutoSizeText(
+      text.locale,
+      style: context.textTheme.bodyText2,
+    );
   }
 }
