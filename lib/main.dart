@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         builder: () => MaterialApp(
               localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
               debugShowCheckedModeBanner: false,
               locale: context.deviceLocale,
               title: 'OTODO',
