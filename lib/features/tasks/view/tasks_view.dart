@@ -23,7 +23,10 @@ class TasksView extends StatelessWidget with BaseState {
     return Scaffold(
         floatingActionButton: AddTaskFABButton(),
         appBar: AppBar(
-          title: Text(values.title),
+          title: Image.asset(
+            ApplicationConstants.LOGO_DARK_PATH,
+            fit: BoxFit.fitWidth,
+          ),
           actions: [
             changeTheme(context),
           ],
