@@ -2,15 +2,15 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:kartal/kartal.dart';
-import 'package:otodo/core/extension/string_extension.dart';
-import 'package:otodo/core/init/lang/locale_keys.g.dart';
+
+
 import '../../../core/base/base_state.dart';
-import '../../../core/init/lang/language_manager.dart';
+
 import '../view_model/tasks_view_model.dart';
 import '../../../main.dart';
 import '../../../widgets/fab/add_fab.dart';
 import '../model/task_model.dart';
-import '../../../core/extension/string_extension.dart';
+
 part 'tasks_string_values.dart';
 
 // LOCALIZATION EKLE THEME CHANGE EKel
@@ -53,7 +53,7 @@ class TasksView extends StatelessWidget with BaseState {
   IconButton changeTheme(BuildContext context) {
     return IconButton(
         onPressed: () {
-          context.locale = LanguageManager.instance.trLocale;
+          
         },
         icon: Icon(Icons.change_circle));
   }
@@ -61,7 +61,7 @@ class TasksView extends StatelessWidget with BaseState {
   Center emptyText() {
     return Center(
       child: Text(
-        "empty",
+        "",
         textScaleFactor: .9,
       ).tr(),
     );

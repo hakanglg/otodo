@@ -26,12 +26,7 @@ Future<void> main() async {
     providers: [
       Provider<TasksViewModel>(create: (_) => TasksViewModel()),
     ],
-    child: EasyLocalization(
-      child: MyApp(),
-      startLocale: LanguageManager.instance.enLocale,
-      supportedLocales: LanguageManager.instance.supportedLocales,
-      path: ApplicationConstants.LANG_ASSET_PATH,
-    ),
+    child: MyApp(),
   ));
 }
 
@@ -43,12 +38,19 @@ class MyApp extends StatelessWidget {
         designSize: Size(360, 690),
         minTextAdapt: true,
         splitScreenMode: true,
-        builder: () => MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: 'OTODO',
-              // locale: context.deviceLocale,
-              theme: darkTheme,
-              home: TasksView(),
+        builder: () => EasyLocalization(
+              path: ApplicationConstants.LANG_ASSET_PATH,
+              supportedLocales: LanguageManager.instance.supportedLocales,
+              startLocale: LanguageManager.instance.supportedLocales[0],
+              child: MaterialApp(
+                debugShowCheckedModeBanner: false,
+                title: 'OTODO',
+                // supportedLocales: context.supportedLocales,
+                // localizationsDelegates: context.localizationDelegates,
+                // locale: context.deviceLocale,
+                theme: darkTheme,
+                home: TasksView(),
+              ),
             ));
   }
 }
