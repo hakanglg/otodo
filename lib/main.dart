@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:otodo/core/constants/app/app_constants.dart';
-import 'package:otodo/core/init/lang/language_manager.dart';
 import 'features/tasks/view_model/tasks_view_model.dart';
 import 'package:provider/provider.dart';
 import 'core/init/theme/dark_theme.dart';
@@ -38,19 +37,14 @@ class MyApp extends StatelessWidget {
         designSize: Size(360, 690),
         minTextAdapt: true,
         splitScreenMode: true,
-        builder: () => EasyLocalization(
-              path: ApplicationConstants.LANG_ASSET_PATH,
-              supportedLocales: LanguageManager.instance.supportedLocales,
-              startLocale: LanguageManager.instance.supportedLocales[0],
-              child: MaterialApp(
-                debugShowCheckedModeBanner: false,
-                title: 'OTODO',
-                // supportedLocales: context.supportedLocales,
-                // localizationsDelegates: context.localizationDelegates,
-                // locale: context.deviceLocale,
-                theme: darkTheme,
-                home: TasksView(),
-              ),
+        builder: () => MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'OTODO',
+              // supportedLocales: context.supportedLocales,
+              // localizationsDelegates: context.localizationDelegates,
+              // locale: context.deviceLocale,
+              theme: darkTheme,
+              home: TasksView(),
             ));
   }
 }
