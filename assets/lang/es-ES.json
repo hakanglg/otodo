@@ -1,5 +1,22 @@
 {
     "emptyTodo" : "¡Tu Otodo está vacío!",
     "hintText" : "Añadir nueva tarea",
-    "errorMsg" : "Algo salió mal.Por favor ingrese un valor y vuelve a intentarlo" 
+    "errorMsg" : "Algo salió mal.Por favor ingrese un valor y vuelve a intentarlo",
+
+    "settings" : "Ajustes",
+
+    "darkMode" : "Modo oscuro",
+    "language" : "El corazón",
+
+
+    "turkish" : "turco",
+    "english" : "El inglés",
+    "german" :"alemán",
+    "italian" : "italiano",
+    "arabian" :"Arábica",
+    "russian" :"ruso",
+    "ukranian": "ucranio",
+    "spanish" : "español",
+    "hindi" : "hindi",
+    "french" : "francés"
 }

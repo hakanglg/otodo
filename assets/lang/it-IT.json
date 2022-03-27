@@ -1,0 +1,22 @@
+{
+    "emptyTodo" : "La tua lista di cose da fare è vuota!",
+    "hintText" : "Inserisci un nuovo compito",
+    "errorMsg" : "Qualcosa è andato storto. Si prega di inserire un valore e riprova",
+
+    "settings" : "Impostazioni",
+
+    "darkMode" : "Modalità scura",
+    "language" : "Il cuore",
+
+
+    "turkish" : "Turco",
+    "english" : "L'inglese",
+    "german" :"Tedesco",
+    "italian" : "italiano",
+    "arabian" :"Arabo",
+    "russian" :"russo",
+    "ukranian": "ucraino",
+    "spanish" : "spagnolo",
+    "hindi" : "hindi",
+    "french" : "francese"
+}

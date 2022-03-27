@@ -1,6 +1,24 @@
 {
     "emptyTodo" : "Your OTODO is empty!",
     "hintText" : "Add new task",
-    "errorMsg" : "Something went wrong. Please enter a value and try again" 
+    "errorMsg" : "Something went wrong. Please enter a value and try again",
+
+    "settings" : "Settings",
+
+    "darkMode" : "Dark mode",
+    "language" : "The heart",
+
+
+    "turkish" : "Turkish",
+    "english" : "English",
+    "german" :"German",
+    "italian" : "Italian",
+    "arabian" :"Arabic",
+    "russian" :"Russian",
+    "ukranian": "Ukrainian",
+    "spanish" : "Spanish",
+    "hindi" : "Hindi",
+    "french" : "French"
+
 }
 

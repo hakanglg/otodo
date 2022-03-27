@@ -1,5 +1,22 @@
 {
     "emptyTodo" : "Yapılacaklar Listeniz Boş!",
     "hintText" : "Yeni bir görev gir",
-    "errorMsg" : "Bir şeyler yanlış gitti.Lütfen bir değer girin ve tekrar deneyin" 
+    "errorMsg" : "Bir şeyler yanlış gitti.Lütfen bir değer girin ve tekrar deneyin",
+
+    "settings" : "Ayarlar",
+
+    "darkMode" : "Karanlık Mod",
+    "language" : "Dil",
+
+
+    "turkish" : "Türkçe",
+    "english" : "İngilizce",
+    "german" :"Almanca",
+    "italian" : "İtalyanca",
+    "arabian" :"Arapça",
+    "russian" :"Rusça",
+    "ukranian": "Ukraynaca",
+    "spanish" : "İspanyolca",
+    "hindi" : "Hintçe",
+    "french" : "Fransızca"
 }

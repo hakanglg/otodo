@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:otodo/core/constants/app/app_constants.dart';
+import 'core/constants/app/app_constants.dart';
 import 'core/init/theme/light_theme.dart';
 import 'features/tasks/view_model/tasks_view_model.dart';
 import 'package:provider/provider.dart';
@@ -29,7 +29,11 @@ Future<void> main() async {
         supportedLocales: ApplicationConstants.SUPPORTEDLOCALS,
         fallbackLocale: ApplicationConstants.EN_LOCALE,
         saveLocale: true,
-        child: MyApp()),
+        child: ScreenUtilInit(
+            designSize: Size(360, 690),
+            minTextAdapt: true,
+            splitScreenMode: true,
+            builder: () => MyApp())),
   ));
 }
 
@@ -37,18 +41,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Provider.of<Tasks>(context).loadTaskFromSharedPref();
-    return ScreenUtilInit(
-        designSize: Size(360, 690),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: () => MaterialApp(
-              localizationsDelegates: context.localizationDelegates,
-              supportedLocales: context.supportedLocales,
-              debugShowCheckedModeBanner: false,
-              locale: context.deviceLocale,
-              title: 'OTODO',
-              theme: lightTheme,
-              home: TasksView(),
-            ));
+    return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      debugShowCheckedModeBanner: false,
+      locale: context.deviceLocale,
+      title: 'OTODO',
+      theme: lightTheme,
+      home: TasksView(),
+    );
   }
 }

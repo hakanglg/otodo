@@ -2,10 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:kartal/kartal.dart';
-import 'package:otodo/core/constants/app/app_constants.dart';
-import 'package:otodo/core/init/lang/locale_keys.g.dart';
+import '../../../core/constants/app/app_constants.dart';
+import '../../../core/init/lang/locale_keys.g.dart';
 import '../../../core/base/base_state.dart';
 import '../../../core/components/text/locale_text.dart';
+import '../../settings/view/settings_view.dart';
 import '../view_model/tasks_view_model.dart';
 import '../../../widgets/fab/add_fab.dart';
 import '../model/task_model.dart';
@@ -23,12 +24,16 @@ class TasksView extends StatelessWidget with BaseState {
     return Scaffold(
         floatingActionButton: AddTaskFABButton(),
         appBar: AppBar(
-          title: Image.asset(
-            ApplicationConstants.LOGO_LIGHT_PATH,
-            fit: BoxFit.fitWidth,
-          ),
-          leading: changeTheme(context),
-        ),
+            title: Image.asset(
+              ApplicationConstants.LOGO_LIGHT_PATH,
+              fit: BoxFit.fitWidth,
+            ),
+            actions: [
+              Padding(
+                padding: context.horizontalPaddingNormal,
+                child: changeTheme(context),
+              )
+            ]),
         body: ValueListenableBuilder(
           valueListenable: _model.taskBox.listenable(),
           builder: (context, Box<Task> box, _) {
@@ -48,10 +53,11 @@ class TasksView extends StatelessWidget with BaseState {
   IconButton changeTheme(BuildContext context) {
     return IconButton(
         onPressed: () {
-          context.locale = ApplicationConstants.EN_LOCALE;
+          // context.locale = ApplicationConstants.EN_LOCALE;
+          context.navigateToPage(SettingsView());
         },
         icon: Icon(
-          Icons.brightness_medium_outlined,
+          Icons.settings,
           color: context.appTheme.iconTheme.color,
         ));
   }
@@ -81,6 +87,7 @@ class TasksView extends StatelessWidget with BaseState {
 
   ListTile taskListTileSection(Box<Task> box, int index, BuildContext context) {
     return ListTile(
+        onTap: () => _model.changeStatus(index),
         title: titleText(box, index, context),
         trailing: trailingIconButton(index, box, context));
   }

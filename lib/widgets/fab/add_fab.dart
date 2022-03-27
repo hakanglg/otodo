@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:otodo/core/constants/color_constants.dart';
+import '../../core/constants/color_constants.dart';
 
 import '../../features/add_tasks/view/add_task_view.dart';
 

@@ -1,5 +1,22 @@
 {
     "emptyTodo" : "Votre otodo est vide!",
     "hintText" : "Ajouter une nouvelle tâche",
-    "errorMsg" : "Quelque chose s'est mal passé.S'il vous plaît entrer une valeur et réessayer" 
+    "errorMsg" : "Quelque chose s'est mal passé.S'il vous plaît entrer une valeur et réessayer",
+
+    "settings" : "Réglages",
+
+    "darkMode" : "Mode sombre",
+    "language" : "Le cœur",
+
+
+    "turkish" : "turc",
+    "english" : "L'anglais",
+    "german" :"Allemand",
+    "italian" : "italien",
+    "arabian" :"arabe",
+    "russian" :"russe",
+    "ukranian": "ukrainien",
+    "spanish" : "Espagnol",
+    "hindi" : "hindi",
+    "french" : "français"
 }

@@ -2,5 +2,22 @@
 {
     "emptyTodo" : "Ihr Otodo ist leer!",
     "hintText" : "Neue Aufgabe hinzufügen",
-    "errorMsg" : "Etwas ist schief gelaufen.Bitte geben Sie einen Wert ein und versuchen Sie es erneut" 
+    "errorMsg" : "Etwas ist schief gelaufen.Bitte geben Sie einen Wert ein und versuchen Sie es erneut",
+
+    "settings" : "Einstellungen",
+
+    "darkMode" : "Dunkler Modus",
+    "language" : "Das Herz",
+
+
+    "turkish" : "Türkisch",
+    "english" : "Englisch",
+    "german" :"Deutsch",
+    "italian" : "Italienisch",
+    "arabian" :"Arabisch",
+    "russian" :"Russisch",
+    "ukranian": "ukrainisch",
+    "spanish" : "Spanisch",
+    "hindi" : "Hindi",
+    "french" : "Französisch"
 }

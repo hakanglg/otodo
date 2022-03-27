@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:otodo/core/components/text/locale_text.dart';
-import 'package:otodo/core/extension/string_extension.dart';
-import 'package:otodo/core/init/lang/locale_keys.g.dart';
+import '../../../core/components/text/locale_text.dart';
+import '../../../core/extension/string_extension.dart';
+import '../../../core/init/lang/locale_keys.g.dart';
 import '../../tasks/view_model/tasks_view_model.dart';
 import 'package:uuid/uuid.dart';
 import '../../../core/base/base_state.dart';
