@@ -13,7 +13,8 @@ import 'features/tasks/view/tasks_view.dart';
 const String taskBoxString = "taskBox";
 const String themeBoxString = "darkModeBox";
 
-// TODO: 
+// TODO: LOCALIZATION
+// TODO: THEME
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
