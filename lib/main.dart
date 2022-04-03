@@ -6,14 +6,13 @@ import 'core/constants/app/app_constants.dart';
 import 'core/init/theme/light_theme.dart';
 import 'features/tasks/view_model/tasks_view_model.dart';
 import 'package:provider/provider.dart';
-import 'core/init/theme/dark_theme.dart';
 import 'features/tasks/model/task_model.dart';
 import 'features/tasks/view/tasks_view.dart';
 
 const String taskBoxString = "taskBox";
 const String themeBoxString = "darkModeBox";
 
-// TODO: LOCALIZATION
+// TODO: LOCALIZATION - Add localization
 // TODO: THEME
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
