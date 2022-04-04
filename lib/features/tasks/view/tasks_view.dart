@@ -1,21 +1,21 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:kartal/kartal.dart';
-import 'package:otodo/features/settings/view_model/setting_view_model.dart';
+import 'package:otodo/core/init/theme/dark_theme.dart';
+import 'package:otodo/core/init/theme/light_theme.dart';
 import 'package:provider/provider.dart';
 import '../../../core/constants/app/app_constants.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
 import '../../../core/base/base_state.dart';
 import '../../../core/components/text/locale_text.dart';
-import '../../settings/view/settings_view.dart';
+import '../../../widgets/button/custom_elevated_button.dart';
+import '../../providers/theme_provider.dart';
 import '../view_model/tasks_view_model.dart';
 import '../../../widgets/fab/add_fab.dart';
 import '../model/task_model.dart';
 
 part 'tasks_string_values.dart';
 
-// LOCALIZATION EKLE THEME CHANGE EKel
 class TasksView extends StatelessWidget with BaseState {
   final _model = TasksViewModel();
 
@@ -23,20 +23,25 @@ class TasksView extends StatelessWidget with BaseState {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
     return Scaffold(
         floatingActionButton: AddTaskFABButton(),
         appBar: AppBar(
             title: Image.asset(
-              Provider.of<SettingsViewModel>(context).isDarkMode
+              themeProvider.themeData == darkTheme
                   ? ApplicationConstants.LOGO_DARK_PATH
                   : ApplicationConstants.LOGO_LIGHT_PATH,
               fit: BoxFit.fitWidth,
             ),
             actions: [
               Padding(
-                padding: context.horizontalPaddingNormal,
-                child: changeTheme(context),
-              )
+                  padding: context.horizontalPaddingNormal,
+                  // child: changeTheme(context),
+                  child: themeProvider.themeData == darkTheme
+                      ? ElevatedThemeButton(
+                          themeData: lightTheme, icon: Icons.light_mode)
+                      : ElevatedThemeButton(
+                          themeData: darkTheme, icon: Icons.dark_mode))
             ]),
         body: ValueListenableBuilder(
           valueListenable: _model.taskBox.listenable(),
@@ -54,20 +59,8 @@ class TasksView extends StatelessWidget with BaseState {
         ));
   }
 
-  IconButton changeTheme(BuildContext context) {
-    return IconButton(
-        onPressed: () {
-          // context.locale = ApplicationConstants.EN_LOCALE;
-          context.navigateToPage(SettingsView());
-        },
-        icon: Icon(
-          Icons.settings,
-          color: context.appTheme.iconTheme.color,
-        ));
-  }
-
   Center emptyText() {
-    return Center(child: LocaleText(text: LocaleKeys.emptyTodo));
+    return const Center(child: LocaleText(text: LocaleKeys.emptyTodo));
   }
 
   Dismissible dismissibleWidget(

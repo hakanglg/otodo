@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:otodo/core/init/theme/dark_theme.dart';
-import 'package:otodo/features/settings/view_model/setting_view_model.dart';
+import 'package:otodo/features/providers/theme_provider.dart';
 import 'core/constants/app/app_constants.dart';
 import 'core/init/theme/light_theme.dart';
 import 'features/tasks/view_model/tasks_view_model.dart';
@@ -27,7 +27,9 @@ Future<void> main() async {
   runApp(MultiProvider(
     providers: [
       Provider<TasksViewModel>(create: (_) => TasksViewModel()),
-      Provider<SettingsViewModel>(create: (_) => SettingsViewModel()),
+      ChangeNotifierProvider(
+        create: (context) => ThemeProvider(lightTheme),
+      )
     ],
     child: EasyLocalization(
         path: ApplicationConstants.LANG_ASSET_PATH,
@@ -52,7 +54,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       locale: context.deviceLocale,
       title: 'OTODO',
-      theme: context.watch<SettingsViewModel>().currentTheme,
+      theme: Provider.of<ThemeProvider>(context).themeData,
       home: TasksView(),
     );
   }
