@@ -1,11 +1,11 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-abstract class  LocaleKeys {
+abstract class LocaleKeys {
   static const emptyTodo = 'emptyTodo';
   static const hintText = 'hintText';
   static const errorMsg = 'errorMsg';
   static const settings = 'settings';
-  static const darkMode = 'darkMode';
+  static const darkMode = 'Dark Mode';
   static const language = 'language';
   static const turkish = 'turkish';
   static const english = 'english';
@@ -17,5 +17,4 @@ abstract class  LocaleKeys {
   static const spanish = 'spanish';
   static const hindi = 'hindi';
   static const french = 'french';
-
 }

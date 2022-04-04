@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../constants/color_constants.dart';
 
-ThemeData darkTheme = ThemeData(
+ThemeData get darkTheme => ThemeData(
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: ColorConstants.instance.spotifyGreen,
@@ -21,8 +21,10 @@ ThemeData darkTheme = ThemeData(
     ),
     iconTheme: const IconThemeData(color: Colors.white),
     textTheme: TextTheme(
-      headline5: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
-      subtitle1: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+      headline5:
+          const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+      subtitle1:
+          const TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
       bodyText2: TextStyle(
           color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16.sp),
       bodyText1: TextStyle(

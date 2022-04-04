@@ -23,7 +23,7 @@ class AddTaskView extends StatelessWidget with BaseState {
       color: colorConstants.white,
       child: TextField(
         cursorColor: context.appTheme.textSelectionTheme.cursorColor,
-        style: context.textTheme.subtitle1,
+        style: context.textTheme.subtitle2,
         onSubmitted: (value) {
           var value = t1.text;
           var newTask = Task(title: value, uuid: Uuid().v1());

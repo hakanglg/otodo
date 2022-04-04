@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../constants/color_constants.dart';
 
-ThemeData lightTheme = ThemeData(
+ThemeData get lightTheme => ThemeData(
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: ColorConstants.instance.spotifyGreen,
@@ -11,7 +11,7 @@ ThemeData lightTheme = ThemeData(
       ),
     ),
     scaffoldBackgroundColor: ColorConstants.instance.white,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       centerTitle: true,
       color: Colors.transparent,
       elevation: 0,

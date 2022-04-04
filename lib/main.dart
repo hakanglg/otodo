@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:otodo/core/init/theme/dark_theme.dart';
+import 'package:otodo/features/settings/view_model/setting_view_model.dart';
 import 'core/constants/app/app_constants.dart';
 import 'core/init/theme/light_theme.dart';
 import 'features/tasks/view_model/tasks_view_model.dart';
@@ -10,7 +12,7 @@ import 'features/tasks/model/task_model.dart';
 import 'features/tasks/view/tasks_view.dart';
 
 const String taskBoxString = "taskBox";
-const String themeBoxString = "darkModeBox";
+const String themeBoxString = "themeBox";
 
 // TODO: LOCALIZATION - Add localization
 // TODO: THEME
@@ -25,6 +27,7 @@ Future<void> main() async {
   runApp(MultiProvider(
     providers: [
       Provider<TasksViewModel>(create: (_) => TasksViewModel()),
+      Provider<SettingsViewModel>(create: (_) => SettingsViewModel()),
     ],
     child: EasyLocalization(
         path: ApplicationConstants.LANG_ASSET_PATH,
@@ -49,7 +52,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       locale: context.deviceLocale,
       title: 'OTODO',
-      theme: lightTheme,
+      theme: context.watch<SettingsViewModel>().currentTheme,
       home: TasksView(),
     );
   }

@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:kartal/kartal.dart';
+import 'package:otodo/features/settings/view_model/setting_view_model.dart';
+import 'package:provider/provider.dart';
 import '../../../core/constants/app/app_constants.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
 import '../../../core/base/base_state.dart';
@@ -25,7 +27,9 @@ class TasksView extends StatelessWidget with BaseState {
         floatingActionButton: AddTaskFABButton(),
         appBar: AppBar(
             title: Image.asset(
-              ApplicationConstants.LOGO_LIGHT_PATH,
+              Provider.of<SettingsViewModel>(context).isDarkMode
+                  ? ApplicationConstants.LOGO_DARK_PATH
+                  : ApplicationConstants.LOGO_LIGHT_PATH,
               fit: BoxFit.fitWidth,
             ),
             actions: [
