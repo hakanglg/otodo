@@ -7,4 +7,5 @@ class ColorConstants {
   final spotifyGreen = const Color(0xff1DB954);
   final white = const Color(0xffffffff);
   final black = const Color(0xff000000);
+  final red = Colors.red;
 }

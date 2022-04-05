@@ -378,13 +378,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
-  lite_rolling_switch:
-    dependency: "direct main"
-    description:
-      name: lite_rolling_switch
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.1"
   logging:
     dependency: transitive
     description:
@@ -602,6 +595,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+  rolling_switch:
+    dependency: "direct main"
+    description:
+      name: rolling_switch
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   share:
     dependency: transitive
     description:

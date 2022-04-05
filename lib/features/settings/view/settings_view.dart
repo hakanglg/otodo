@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:kartal/kartal.dart';
+import 'package:otodo/core/base/base_state.dart';
 import 'package:otodo/core/components/column/my_column.dart';
 import 'package:otodo/core/components/row/my_row.dart';
 import 'package:otodo/core/components/text/locale_text.dart';
@@ -16,7 +18,7 @@ class SettingsView extends StatefulWidget {
   State<SettingsView> createState() => _SettingsViewState();
 }
 
-class _SettingsViewState extends State<SettingsView> {
+class _SettingsViewState extends State<SettingsView> with BaseState {
   late Box themeBox;
 
   _SettingsStringValues values = _SettingsStringValues();
@@ -76,8 +78,10 @@ class _SettingsViewState extends State<SettingsView> {
     );
   }
 
-  Switch buildSwitchButton(darkMode, Box<dynamic> box) {
-    return Switch(
+  CupertinoSwitch buildSwitchButton(darkMode, Box<dynamic> box) {
+    return CupertinoSwitch(
+        trackColor: colorConstants.red,
+        activeColor: colorConstants.spotifyGreen,
         value: darkMode,
         onChanged: (val) {
           box.put("darkMode", !darkMode);
