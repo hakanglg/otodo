@@ -1,6 +1,10 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 class ApplicationConstants {
+  static const String APP_TITLE = "OTODO";
+
   static const LANG_ASSET_PATH = "assets/lang";
   static const LOGO_DARK_PATH = "assets/images/ic_logo_dark.png";
   static const LOGO_LIGHT_PATH = "assets/images/ic_logo_light.png";

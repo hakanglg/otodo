@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../core/components/text/locale_text.dart';
 import '../../../core/extension/string_extension.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
 import '../../tasks/view_model/tasks_view_model.dart';
@@ -9,11 +8,14 @@ import 'package:kartal/kartal.dart';
 import '../../tasks/model/task_model.dart';
 part "add_task_string_values.dart";
 
+// ignore: must_be_immutable
 class AddTaskView extends StatelessWidget with BaseState {
   final TasksViewModel _model = TasksViewModel();
 
   _AddTaskViewStringValues values = _AddTaskViewStringValues();
   TextEditingController t1 = TextEditingController();
+
+  AddTaskView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +25,11 @@ class AddTaskView extends StatelessWidget with BaseState {
       color: colorConstants.white,
       child: TextField(
         cursorColor: context.appTheme.textSelectionTheme.cursorColor,
-        style: context.textTheme.subtitle2,
+        style:
+            context.textTheme.subtitle2!.copyWith(color: colorConstants.white),
         onSubmitted: (value) {
           var value = t1.text;
-          var newTask = Task(title: value, uuid: Uuid().v1());
+          var newTask = Task(title: value, uuid: const Uuid().v1());
           _model.addTask(context, newTask);
         },
         controller: t1,

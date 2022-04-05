@@ -1,5 +1,4 @@
 import 'package:hive_flutter/adapters.dart';
-import 'package:uuid/uuid.dart';
 part "task_model.g.dart";
 
 @HiveType(typeId: 1)

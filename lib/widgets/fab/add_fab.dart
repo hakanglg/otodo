@@ -4,6 +4,8 @@ import '../../core/constants/color_constants.dart';
 import '../../features/add_tasks/view/add_task_view.dart';
 
 class AddTaskFABButton extends StatelessWidget {
+  const AddTaskFABButton({Key? key}) : super(key: key);
+
   void _showAddTaskModelBottomSheet(BuildContext context) {
     showModalBottomSheet(context: context, builder: (context) => AddTaskView());
   }

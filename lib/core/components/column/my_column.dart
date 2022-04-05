@@ -8,9 +8,9 @@ class MyColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Spacer(flex: 1),
+        const Spacer(flex: 1),
         Expanded(flex: 19, child: child),
-        Spacer(flex: 1)
+        const Spacer(flex: 1)
       ],
     );
   }
