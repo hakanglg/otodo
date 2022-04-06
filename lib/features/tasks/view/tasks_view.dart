@@ -35,7 +35,7 @@ class TasksView extends StatelessWidget with BaseState {
 
   Image titleSection() {
     return Image.asset(
-      themeBox.get("darkMode")
+      themeBox.get("darkMode") ?? false
           ? ApplicationConstants.LOGO_DARK_PATH
           : ApplicationConstants.LOGO_LIGHT_PATH,
       fit: BoxFit.fitWidth,
