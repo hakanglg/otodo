@@ -1,6 +1,13 @@
 **OTODO**
 
-<img src="https://user-images.githubusercontent.com/58719777/162288945-43563e0f-598b-4732-91be-f6b85a5a305c.png" width="150"/>
+
+
+<a href="https://play.google.com/store/apps/details?id=com.compo.otodo&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
+         <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+         width=150" height="70">
+      </a>
+
+
 
 
 ![store_future](https://user-images.githubusercontent.com/58719777/162288698-f4f8d226-dada-45e8-a299-2a8e42c560ad.png)
