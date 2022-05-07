@@ -19,7 +19,7 @@ class SettingsView extends StatefulWidget {
 }
 
 class _SettingsViewState extends State<SettingsView> with BaseState {
-  late Box themeBox;
+  late Box<dynamic> themeBox;
 
   _SettingsStringValues values = _SettingsStringValues();
 
@@ -40,9 +40,7 @@ class _SettingsViewState extends State<SettingsView> with BaseState {
       valueListenable: themeBox.listenable(),
       builder: (context, Box box, _) {
         var darkMode = box.get("darkMode", defaultValue: false);
-        return Scaffold(
-            appBar: appBarSection(context),
-            body: buildBodySection(darkMode, box));
+        return Scaffold(appBar: appBarSection(context), body: buildBodySection(darkMode, box));
       },
     );
   }

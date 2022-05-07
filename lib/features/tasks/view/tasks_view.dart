@@ -77,7 +77,7 @@ class TasksView extends StatelessWidget with BaseState {
     return Dismissible(
       background: Container(
           alignment: Alignment.centerRight,
-          color: Colors.red,
+          color: colorConstants.red,
           child: Padding(
             padding: context.horizontalPaddingNormal,
             child: Icon(
